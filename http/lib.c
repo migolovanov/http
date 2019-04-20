@@ -114,6 +114,9 @@ lbox_httpd_escape_html(struct lua_State *L)
 			continue;
 		}
 		const char *s = lua_tostring(L, i);
+		if (s == NULL) {
+			continue;
+		}
 		for (; *s; s++) {
 			switch(*s) {
 				case '&':
